@@ -30,4 +30,5 @@ def transform_lakers():
     print('Saved lakers_games.csv')
     print(df.head())
 
-transform_lakers()
+if __name__ == "__main__":
+    transform_lakers()

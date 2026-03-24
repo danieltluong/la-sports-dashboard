@@ -20,4 +20,5 @@ def transform_news():
     print("Saved news.csv")
     print(df[['published_at', 'headline']].head(10))
 
-transform_news()
+if __name__ == "__main__":
+    transform_news()

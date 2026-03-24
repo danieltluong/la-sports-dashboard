@@ -24,4 +24,5 @@ def transform_current_weather():
     print('Dataframe save to weather_current.csv')
     print(df)
 
-transform_current_weather()
+if __name__ == "__main__":
+    transform_current_weather()

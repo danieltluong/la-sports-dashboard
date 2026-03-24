@@ -1,11 +1,11 @@
-import fetch_weather
-import fetch_lakers
-import fetch_rams
-import fetch_news
+import transform_weather
+import transform_lakers
+import transform_rams
+import transform_news
 
-print("Running ETL pipeline...")
-fetch_weather.run()
-fetch_lakers.run()
-fetch_rams.run()
-fetch_news.run()
-print("Done.")
+print("Starting ETL pipeline...")
+transform_weather.transform_current_weather()
+transform_lakers.transform_lakers()
+transform_rams.transform_rams()
+transform_news.transform_news()
+print("\nAll done. CSVs updated in /data")

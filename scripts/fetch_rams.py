@@ -24,9 +24,3 @@ for team in competitors:
         opp_score = team['score']['displayValue']
 
 result = 'W' if rams_won else 'L'
-
-print(f"""
-Latest Game: LAR vs {opp_team}
-Result: {result}
-Score: {rams_score} - {opp_score}
-      """)

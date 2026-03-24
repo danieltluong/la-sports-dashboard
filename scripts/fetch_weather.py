@@ -31,9 +31,3 @@ current_temp = weather['main']['temp']
 weather_description = weather['weather'][0]['description']
 wind_speed = weather['wind']['speed']
 humidity = weather['main']['humidity']
-print(f"""
-Temperature: {current_temp} F
-Description: {weather_description}
-Wind speed: {wind_speed} mph
-Humidity: {humidity}%      
-""")

@@ -23,9 +23,3 @@ latest_result = latest_game['WL']
 latest_score = latest_game['PTS']
 num_wins = latest_game['W']
 num_loss = latest_game['L']
-print(f"""
-Last game: {latest_matchup}
-Result: {latest_result}
-Scored: {latest_score}
-Record: {num_wins}-{num_loss}
-      """)

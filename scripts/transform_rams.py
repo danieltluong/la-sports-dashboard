@@ -40,5 +40,6 @@ def transform_rams():
     print("Saved rams_games.csv")
     print(df.head())
 
-transform_rams()
+if __name__ == "__main__":
+    transform_rams()
 

@@ -18,7 +18,3 @@ def fetch_sports_news():
     articles.extend(rams_data.get('articles', []))
     
     return articles
-
-articles = fetch_sports_news()
-for article in articles:
-    print(article['headline'])
