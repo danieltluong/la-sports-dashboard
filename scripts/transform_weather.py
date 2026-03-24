@@ -15,8 +15,8 @@ def transform_current_weather():
         "condition": raw["weather"][0]["main"],
         "description": raw["weather"][0]["description"],
         "visibility_mi": round(raw["visibility"] / 1609, 1),
-        "sunrise": datetime.fromtimestamp(raw["sys"]["sunrise"], tz=timezone.utc).strftime("%H:%M"),
-        "sunset": datetime.fromtimestamp(raw["sys"]["sunset"], tz=timezone.utc).strftime("%H:%M"),
+        "sunrise": datetime.fromtimestamp(raw["sys"]["sunrise"]).strftime("%I:%M %p"),
+        "sunset": datetime.fromtimestamp(raw["sys"]["sunset"]).strftime("%I:%M %p"),
     }
 
     df = pd.DataFrame([row])
