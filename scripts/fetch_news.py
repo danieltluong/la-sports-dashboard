@@ -1,23 +1,24 @@
 import requests
-import os
-from dotenv import load_dotenv
 
-load_dotenv()
-API_KEY = os.getenv("NEWS_API_KEY")
-
-
-#Pull news on Lakers or Rams
 def fetch_sports_news():
-    url = f"https://newsapi.org/v2/everything?q=Lakers+OR+Rams&language=en&sortBy=publishedAt&pageSize=10&apiKey={API_KEY}"
+    articles = []
     
-    response = requests.get(url)
-    print(response.status_code)
-    response.raise_for_status()
-    data = response.json()
-    return data['articles']
+    # Fetch Lakers news
+    lakers_url = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news?limit=5&team=lal"
+    lakers_response = requests.get(lakers_url)
+    lakers_response.raise_for_status()
+    lakers_data = lakers_response.json()
+    articles.extend(lakers_data.get('articles', []))
+    
+    # Fetch Rams news
+    rams_url = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=5&team=lar"
+    rams_response = requests.get(rams_url)
+    rams_response.raise_for_status()
+    rams_data = rams_response.json()
+    articles.extend(rams_data.get('articles', []))
+    
+    return articles
 
 articles = fetch_sports_news()
 for article in articles:
-    print(article['title'])
-    print(article['publishedAt'])
-    print()
+    print(article['headline'])
