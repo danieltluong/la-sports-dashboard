@@ -1,0 +1,18 @@
+date,matchup,status,completed,rams_score,opp_score,opp_team,result,win
+2025-09-07,HOU @ LAR,Final,True,14,9,HOU,W,1
+2025-09-14,LAR @ TEN,Final,True,33,19,TEN,W,1
+2025-09-21,LAR @ PHI,Final,True,26,33,PHI,L,0
+2025-09-28,IND @ LAR,Final,True,27,20,IND,W,1
+2025-10-03,SF @ LAR,Final/OT,True,23,26,SF,L,0
+2025-10-12,LAR @ BAL,Final,True,17,3,BAL,W,1
+2025-10-19,LAR VS JAX,Final,True,35,7,JAX,W,1
+2025-11-02,NO @ LAR,Final,True,34,10,NO,W,1
+2025-11-09,LAR @ SF,Final,True,42,26,SF,W,1
+2025-11-16,SEA @ LAR,Final,True,21,19,SEA,W,1
+2025-11-24,TB @ LAR,Final,True,34,7,TB,W,1
+2025-11-30,LAR @ CAR,Final,True,28,31,CAR,L,0
+2025-12-07,LAR @ ARI,Final,True,45,17,ARI,W,1
+2025-12-14,DET @ LAR,Final,True,41,34,DET,W,1
+2025-12-19,LAR @ SEA,Final/OT,True,37,38,SEA,L,0
+2025-12-30,LAR @ ATL,Final,True,24,27,ATL,L,0
+2026-01-04,ARI @ LAR,Final,True,37,20,ARI,W,1
