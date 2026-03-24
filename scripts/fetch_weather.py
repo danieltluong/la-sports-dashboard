@@ -11,6 +11,7 @@ API_KEY = os.getenv('OPENWEATHER_API_KEY')
 LAT = 34.0522
 LON = -118.2437
 
+#Pull weather data based on params
 def current_weather():
     url = 'https://api.openweathermap.org/data/2.5/weather'
     params = {
