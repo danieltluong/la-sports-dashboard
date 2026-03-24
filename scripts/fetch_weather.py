@@ -21,6 +21,7 @@ def current_weather():
     }
 
     response = requests.get(url, params=params)
+    response.raise_for_status()
     data = response.json()
     return data
 
@@ -28,4 +29,10 @@ weather = current_weather()
 current_temp = weather['main']['temp']
 weather_description = weather['weather'][0]['description']
 wind_speed = weather['wind']['speed']
-print(current_temp, weather_description,wind_speed)
+humidity = weather['main']['humidity']
+print(f"""
+Temperature: {current_temp} F
+Description: {weather_description}
+Wind speed: {wind_speed} mph
+Humidity: {humidity}%      
+""")
