@@ -26,8 +26,9 @@ def current_weather():
     data = response.json()
     return data
 
-weather = current_weather()
-current_temp = weather['main']['temp']
-weather_description = weather['weather'][0]['description']
-wind_speed = weather['wind']['speed']
-humidity = weather['main']['humidity']
+if __name__ == "__main__":
+    weather = current_weather()
+    current_temp = weather['main']['temp']
+    weather_description = weather['weather'][0]['description']
+    wind_speed = weather['wind']['speed']
+    humidity = weather['main']['humidity']

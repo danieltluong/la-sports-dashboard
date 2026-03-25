@@ -16,10 +16,11 @@ def fetch_lakers_games():
     df = gamelog.get_data_frames()[0]
     return df
 
-games = fetch_lakers_games()
-latest_game = games.iloc[0]
-latest_matchup = latest_game['MATCHUP']
-latest_result = latest_game['WL']
-latest_score = latest_game['PTS']
-num_wins = latest_game['W']
-num_loss = latest_game['L']
+if __name__ == "__main__":
+    games = fetch_lakers_games()
+    latest_game = games.iloc[0]
+    latest_matchup = latest_game['MATCHUP']
+    latest_result = latest_game['WL']
+    latest_score = latest_game['PTS']
+    num_wins = latest_game['W']
+    num_loss = latest_game['L']

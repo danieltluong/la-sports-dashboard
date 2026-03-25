@@ -11,16 +11,18 @@ def fetch_rams_games():
     data = response.json()
     return data
 
-rams_data = fetch_rams_games()
-event = rams_data['events'][0]
-competition = event['competitions'][0]
-competitors = competition['competitors']
-for team in competitors:
-    if team['team']['abbreviation'] == 'LAR':
-        rams_score = team['score']['displayValue']
-        rams_won = team['winner']
-    else:
-        opp_team = team['team']['abbreviation']
-        opp_score = team['score']['displayValue']
+if __name__ == "__main__":
 
-result = 'W' if rams_won else 'L'
+    rams_data = fetch_rams_games()
+    event = rams_data['events'][0]
+    competition = event['competitions'][0]
+    competitors = competition['competitors']
+    for team in competitors:
+        if team['team']['abbreviation'] == 'LAR':
+            rams_score = team['score']['displayValue']
+            rams_won = team['winner']
+        else:
+            opp_team = team['team']['abbreviation']
+            opp_score = team['score']['displayValue']
+
+    result = 'W' if rams_won else 'L'
