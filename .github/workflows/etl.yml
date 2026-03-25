@@ -1,0 +1,37 @@
+name: Run ETL Pipeline
+
+on:
+  schedule:
+    - cron: '0 12 * * *'    # Runs every day at noon UTC
+  workflow_dispatch:          
+
+jobs:
+  etl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run ETL pipeline
+        env:
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+        run: |
+          cd scripts
+          python run_etl.py
+
+      - name: Commit updated CSVs
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "chore: update data CSVs"
+          git push
