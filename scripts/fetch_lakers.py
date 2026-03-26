@@ -8,13 +8,6 @@ def fetch_lakers_games():
     return data
 
 if __name__ == "__main__":
-    import json
     data = fetch_lakers_games()
     events = data['events']
-    
-    # Find the most recent completed game
-    for event in reversed(events):
-        competition = event['competitions'][0]
-        if competition['status']['type']['completed']:
-            print(json.dumps(event, indent=2))
-            break
+    print(f"Total games: {len(events)}")
