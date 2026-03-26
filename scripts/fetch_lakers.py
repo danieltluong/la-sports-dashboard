@@ -1,26 +1,20 @@
-from nba_api.stats.endpoints import teamgamelog
-from nba_api.stats.static import teams
+import requests
 
-SEASON = '2025-26'
-
-#Get the ID for Lakers team
-def get_lakers_id():
-    all_teams = teams.get_teams()
-    lakers = [team for team in all_teams if team['full_name'] == 'Los Angeles Lakers']
-    return lakers[0]['id']
-
-#Get season's game log
 def fetch_lakers_games():
-    team_id = get_lakers_id()
-    gamelog = teamgamelog.TeamGameLog(team_id=team_id, season=SEASON)
-    df = gamelog.get_data_frames()[0]
-    return df
+    url = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/13/schedule"
+    response = requests.get(url)
+    response.raise_for_status()
+    data = response.json()
+    return data
 
 if __name__ == "__main__":
-    games = fetch_lakers_games()
-    latest_game = games.iloc[0]
-    latest_matchup = latest_game['MATCHUP']
-    latest_result = latest_game['WL']
-    latest_score = latest_game['PTS']
-    num_wins = latest_game['W']
-    num_loss = latest_game['L']
+    import json
+    data = fetch_lakers_games()
+    events = data['events']
+    
+    # Find the most recent completed game
+    for event in reversed(events):
+        competition = event['competitions'][0]
+        if competition['status']['type']['completed']:
+            print(json.dumps(event, indent=2))
+            break
